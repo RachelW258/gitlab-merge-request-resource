@@ -1,4 +1,4 @@
-module github.com/samcontesse/gitlab-merge-request-resource
+module github.com/RachelW258/gitlab-merge-request-resource
 
 require (
 	github.com/concourse/tracker-resource v1.0.0 // indirect
