@@ -118,6 +118,10 @@ func buildMetadata(mr *gitlab.MergeRequest, commit *gitlab.Commit) resource.Meta
 			Value: mr.SourceBranch,
 		},
 		{
+			Name:  "target",
+			Value: mr.TargetBranch,
+		},
+		{
 			Name:  "url",
 			Value: mr.WebURL,
 		},
