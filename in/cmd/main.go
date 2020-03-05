@@ -48,7 +48,7 @@ func main() {
 		common.Fatal("listing merge request commits", err)
 	}
 
-	execGitCommand([]string{"clone", "-c", "http.sslVerify=" + strconv.FormatBool(!request.Source.Insecure), "-o", "target", "-b", target.String(), destination})
+	execGitCommand([]string{"clone", "-c", "http.sslVerify=" + strconv.FormatBool(!request.Source.Insecure), "-o", "target", "-b", mr.TargetBranch, target.String(), destination})
 	os.Chdir(destination)
 	execGitCommand([]string{"remote", "add", "source", source.String()})
 	execGitCommand([]string{"remote", "update"})
