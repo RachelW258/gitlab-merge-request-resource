@@ -25,7 +25,7 @@ func main() {
 	options := &gitlab.ListProjectMergeRequestsOptions{
 		State:        gitlab.String("opened"),
 		OrderBy:      gitlab.String("updated_at"),
-		Labels:       request.Source.Labels,
+		Labels:       gitlab.Labels(request.Source.Labels),
 	}
 	requests, _, err := api.MergeRequests.ListProjectMergeRequests(request.Source.GetProjectPath(), options)
 
