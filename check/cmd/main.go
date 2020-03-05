@@ -22,10 +22,12 @@ func main() {
 	api := gitlab.NewClient(common.GetDefaultClient(request.Source.Insecure), request.Source.PrivateToken)
 	api.SetBaseURL(request.Source.GetBaseURL())
 
+	labels := gitlab.Labels(request.Source.Labels)
+
 	options := &gitlab.ListProjectMergeRequestsOptions{
 		State:        gitlab.String("opened"),
 		OrderBy:      gitlab.String("updated_at"),
-		Labels:       gitlab.Labels(request.Source.Labels),
+		Labels:       &labels,
 	}
 	requests, _, err := api.MergeRequests.ListProjectMergeRequests(request.Source.GetProjectPath(), options)
 
