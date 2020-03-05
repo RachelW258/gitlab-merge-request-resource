@@ -48,7 +48,7 @@ func main() {
 		common.Fatal("listing merge request commits", err)
 	}
 
-	execGitCommand([]string{"clone", "-c", "http.sslVerify=" + strconv.FormatBool(!request.Source.Insecure), "-o", "target", "-b", mr.TargetBranch, target.String(), destination})
+	execGitCommand([]string{"clone", "-c", "http.sslVerify=" + strconv.FormatBool(!request.Source.Insecure), "-o", "target", "-b", target.String(), destination})
 	os.Chdir(destination)
 	execGitCommand([]string{"remote", "add", "source", source.String()})
 	execGitCommand([]string{"remote", "update"})
@@ -116,10 +116,6 @@ func buildMetadata(mr *gitlab.MergeRequest, commit *gitlab.Commit) resource.Meta
 		{
 			Name:  "source",
 			Value: mr.SourceBranch,
-		},
-		{
-			Name:  "target",
-			Value: mr.TargetBranch,
 		},
 		{
 			Name:  "url",

@@ -16,7 +16,6 @@ type Source struct {
 	SkipTriggerComment bool     `json:"skip_trigger_comment,omitempty"`
 	ConcourseUrl       string   `json:"concourse_url,omitempty"`
 	Labels             []string `json:"labels,omitempty"`
-	TargetBranch       string   `json:"target_branch,omitempty"`
 }
 
 type Version struct {
